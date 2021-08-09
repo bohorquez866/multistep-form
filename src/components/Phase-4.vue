@@ -8,13 +8,14 @@
           type="text"
           name="especialidade"
           placeholder="Especialidade"
-          :value="arraySpecialities.join()"
+          :value="arraySpecialities.join(', ')"
         />
       </span>
       <input role="button" @click="startOver" class="add-user" value="Enviar" />
     </div>
 
     <input
+      class="checkbox"
       type="checkbox"
       id="crossfit"
       name="crossfit"
@@ -23,6 +24,7 @@
     />
     <label for="crossfit"> Crossfit </label>
     <input
+      class="checkbox"
       type="checkbox"
       id="abdomen"
       name="abdomen"
@@ -85,6 +87,7 @@ export default {
         userType: "",
         especiality: [],
       };
+      this.$store.commit("showAlert");
       this.$store.commit("setUserInfo", obj);
       this.$store.commit("startOver");
     },

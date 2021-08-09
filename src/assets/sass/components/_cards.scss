@@ -1,201 +1,160 @@
-    .list,
-    .phase {
-        background-color: #fff;
-        box-shadow: -2px -2px 11px -2px rgba(0, 0, 0, 0.46);
-        min-height: 200px;
+.list,
+.phase {
+    background-color: #fff;
+    box-shadow: -2px -2px 11px -2px rgba(0, 0, 0, 0.46);
+    min-height: 200px;
+    width: 100%;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    & input {
         width: 100%;
-        padding: 2rem;
-        margin-top: 3rem;
         border-radius: 1rem;
-        & input {
+        outline: none;
+        overflow: hidden;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid $grey;
+        padding-left: 1rem;
+        height: 40px;
+        display: block;
+    }
+}
+
+h2 {
+    margin-top: 2rem;
+}
+
+.home {
+    @include mq($bpMedium) {
+        width: 90%;
+    }
+}
+
+.Card {
+    width: 500px;
+    @include mq($bpMedium) {
+        width: 100%;
+    }
+    & #searchbar {
+        border-radius: 3rem;
+        outline: none;
+        overflow: hidden;
+        width: 70%;
+        @include margin-x;
+        padding: 5px;
+        border: 1px solid $orange;
+        padding-left: 1rem;
+        height: 40px;
+        display: block;
+        color: $orange;
+        @include mq($bpMedium) {
             width: 100%;
-            border-radius: 1rem;
-            outline: none;
-            overflow: hidden;
-            width: 100%;
-            padding: 5px;
+            padding: 1rem;
+        }
+        &:placeholder-shown {
             border: 1px solid $grey;
-            padding-left: 1rem;
-            height: 40px;
-            display: block;
         }
     }
-    
-    .title {
-        font-size: 3rem;
-        font-weight: 500;
-        font-style: italic;
-        margin-top: 0;
-    }
-    
-    h2 {
+    & .searchbar-wrapper {
         margin-top: 2rem;
-    }
-    
-    .home {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         @include mq($bpMedium) {
-            width: 90%;
+            column-gap: 3rem;
+        }
+        @include mq($bpSmall) {
+            flex-direction: column;
+            row-gap: 2rem;
+            column-gap: 0;
         }
     }
-    
-    .Card {
-        width: 500px;
-        @include mq($bpMedium) {
-            width: 100%;
+}
+
+.phase {
+    & label {
+        display: block;
+        text-align: left;
+        color: $black;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    & .input-wrapper {
+        &:not(:last-of-type) {
+            margin-bottom: 2rem;
         }
-        & #searchbar {
-            border-radius: 3rem;
-            outline: none;
-            overflow: hidden;
-            width: 70%;
-            @include margin-x;
-            padding: 5px;
-            border: 1px solid $orange;
-            padding-left: 1rem;
-            height: 40px;
-            display: block;
-            color: $orange;
-            @include mq($bpMedium) {
-                width: 100%;
-                padding: 1rem;
-            }
-            &:placeholder-shown {
-                border: 1px solid $grey;
-            }
-        }
-        & .searchbar-wrapper {
-            margin-top: 2rem;
+    }
+    &-1 {
+        &>div {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            @include mq($bpMedium) {
-                column-gap: 3rem;
-            }
+            justify-content: center;
+            column-gap: 3rem;
             @include mq($bpSmall) {
                 flex-direction: column;
                 row-gap: 2rem;
-                column-gap: 0;
+                margin-top: 2rem;
             }
-        }
-    }
-    
-    .add-user {
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        @include transition;
-        border-radius: 5rem;
-        background-color: $orange;
-        border: 1px solid $orange;
-        color: $white;
-        padding: 0 2rem;
-        height: 40px;
-        font-weight: 700;
-        cursor: pointer;
-        @include mq($bpMedium) {
-            width: 100%;
-        }
-        &:hover {
-            border: 1px solid $black;
-            background-color: $black;
-            color: $white;
-        }
-    }
-    
-    .progress-bar {
-        position: relative;
-        width: 100%;
-        height: 2rem;
-        margin-top: 2rem;
-        border-radius: 2rem;
-        display: block;
-        overflow: hidden;
-        background-color: rgb(253, 250, 250);
-        &::before {
-            position: absolute;
-            left: 0;
-            content: "";
-            height: 100%;
-            bottom: 0;
-            background-color: $green;
-            border-radius: 2rem;
-        }
-    }
-    
-    .phase {
-        & label {
-            display: block;
-            text-align: left;
-            color: $black;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        & .input-wrapper {
-            &:not(:last-of-type) {
-                margin-bottom: 2rem;
-            }
-        }
-        &-1 {
-            &>div {
-                display: flex;
-                justify-content: center;
-                column-gap: 3rem;
+            & button {
+                cursor: pointer;
+                border-radius: 1rem;
+                margin-top: 4rem;
+                font-size: 16px;
+                margin-bottom: 4rem;
+                background-color: rgb(177, 201, 192);
+                height: 15rem;
+                width: 15rem;
                 @include mq($bpSmall) {
-                    flex-direction: column;
-                    row-gap: 2rem;
-                    margin-top: 2rem;
-                }
-                & button {
-                    cursor: pointer;
-                    border-radius: 1rem;
-                    margin-top: 4rem;
-                    font-size: 16px;
-                    margin-bottom: 4rem;
-                    background-color: rgb(177, 201, 192);
-                    height: 15rem;
-                    width: 15rem;
-                    @include mq($bpSmall) {
-                        width: 100%;
-                        height: 6rem;
-                        margin: 0;
-                    }
+                    width: 100%;
+                    height: 6rem;
+                    margin: 0;
                 }
             }
         }
-        &-4 {
-            & span {
-                display: block;
-                width: 70%;
-            }
-            &>div:first-of-type {
-                display: flex;
-                column-gap: 2rem;
-                margin-bottom: 3rem;
-            }
-            & .add-user {
-                border-color: $orange;
-                width: 30%;
-                &:hover {
-                    border-color: $black;
-                }
-            }
-            & .tag {
-                box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
-                background-color: #fff;
-                border: none;
-            }
+    }
+    &-4 {
+        & span {
+            display: block;
+            width: 70%;
         }
-    }
-    
-    .btns {
-        margin-top: 2rem;
-        display: flex;
-        column-gap: 1rem;
-        justify-content: center;
-        margin-bottom: 2rem;
-    }
-    
-    .default-view {
+        &>div:first-of-type {
+            display: flex;
+            column-gap: 2rem;
+            margin-bottom: 3rem;
+        }
         & .add-user {
-            margin-top: 3rem;
+            border-color: $orange;
+            width: 30%;
+            &:hover {
+                border-color: $black;
+            }
+        }
+        & .tag {
+            box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+            background-color: #fff;
+            border: none;
+        }
+        .checkbox {
+            display: none;
+            &+label {
+                padding: 1.5rem;
+                display: inline-flex;
+                margin-bottom: 0;
+                background-color: #2c3e50;
+                margin-right: 1rem;
+                border-radius: 1rem;
+                color: $white;
+                cursor: pointer;
+                &:hover {
+                    background-color: lighten(#2c3e50, 10%);
+                }
+            }
         }
     }
+}
+
+.default-view {
+    & .add-user {
+        margin-top: 3rem;
+    }
+}

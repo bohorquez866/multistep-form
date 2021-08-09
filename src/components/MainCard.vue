@@ -30,6 +30,9 @@
       />
     </form>
   </section>
+  <div v-if="$store.state.success" class="success-message">
+    Dados adicionados correitamente
+  </div>
 </template>
 
 <script>

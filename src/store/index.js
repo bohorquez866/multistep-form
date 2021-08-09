@@ -4,6 +4,7 @@ export default createStore({
     state: {
         defaultView: 0,
         users: [],
+        success: false,
         user: {
             name: "",
             username: "",
@@ -22,6 +23,9 @@ export default createStore({
         selectedType: "",
     },
     getters: {
+        sucessMessage(state) {
+            return state.success;
+        },
         defaultView(state) {
             return state.defaultView;
         },
@@ -41,7 +45,12 @@ export default createStore({
         changeDefaultView(state) {
             state.defaultView++;
         },
-
+        showAlert(state) {
+            state.success = !state.success;
+            setTimeout(() => {
+                state.success = !state.success;
+            }, 1500);
+        },
         returnPreviousView(state) {
             state.defaultView--;
         },
