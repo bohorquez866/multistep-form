@@ -1,6 +1,7 @@
 <template>
   <section class="Card">
     <h1 class="title">Form</h1>
+    <pre>{{ userModified }}</pre>
     <default-card v-if="CurrentView == 0" />
     <form @submit.prevent="" v-if="showForm">
       <phase-1 v-if="CurrentView == 1" v-model:userType="userObject.userType" />

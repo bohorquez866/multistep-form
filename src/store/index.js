@@ -17,7 +17,7 @@ export default createStore({
             country: "",
             userType: "",
             especiality: [],
-          },
+        },
         userTypes: ["usuario", "instrutor"],
         selectedType: "",
     },
@@ -32,9 +32,9 @@ export default createStore({
         selectedType(state) {
             return state.selectedType;
         },
-        user(state){
+        user(state) {
             return state.user;
-        }
+        },
     },
 
     mutations: {
@@ -54,9 +54,9 @@ export default createStore({
         addUserInfo(state, payload) {
             state.user = payload;
         },
-        setUserInfo(state, payload){
-            state.user = payload
-        }
+        setUserInfo(state, payload) {
+            state.user = payload;
+        },
     },
 
     actions: {

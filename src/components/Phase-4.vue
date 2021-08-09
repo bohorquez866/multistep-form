@@ -1,25 +1,35 @@
 <template>
   <h2>informações de especialidade</h2>
-  <article class="phase">
+  <article class="phase phase-4">
+    <label for="especialidade">Especialidade</label>
     <div>
-      <label for="especialidade">Especialidade</label>
-
-      <input
-        type="text"
-        name="especialidade"
-        placeholder="Especialidade"
-        @input="onChangeValue($event)"
-        :value="
-          $store.getters.user ? $store.getters.user.especiality.join() : ''
-        "
-      />
-
-      <input type="submit" @click="startOver" value="Enviar" />
+      <span>
+        <input
+          type="text"
+          name="especialidade"
+          placeholder="Especialidade"
+          :value="arraySpecialities.join()"
+        />
+      </span>
+      <input role="button" @click="startOver" class="add-user" value="Enviar" />
     </div>
 
-    <div v-for="item in specialities" :key="item.id">
-      <input type="button" :value="item" />
-    </div>
+    <input
+      type="checkbox"
+      id="crossfit"
+      name="crossfit"
+      value="crossfit"
+      v-model="arraySpecialities"
+    />
+    <label for="crossfit"> Crossfit </label>
+    <input
+      type="checkbox"
+      id="abdomen"
+      name="abdomen"
+      value="abdomen"
+      v-model="arraySpecialities"
+    />
+    <label for="abdomen"> Abdomen </label>
   </article>
   <span class="progress-bar user-phase-4"></span>
 </template>
@@ -42,10 +52,18 @@ export default {
     sp() {
       return this.$store.getters.user;
     },
+    sps() {
+      return this.$store.getters.specialities;
+    },
   },
   data() {
     return {
       specialty: "",
+      arraySpecialities: this.$store.getters.user
+        ? this.$store.getters.user.especiality
+        : [],
+      crossfitController: false,
+      abdomenController: false,
     };
   },
   methods: {
@@ -53,11 +71,26 @@ export default {
       this.specialty = e.target.value;
     },
     startOver() {
+      let obj = {
+        name: "",
+        username: "",
+        date: "",
+        email: "",
+        phone: "",
+        street: "",
+        cep: "",
+        city: "",
+        state: "",
+        country: "",
+        userType: "",
+        especiality: [],
+      };
+      this.$store.commit("setUserInfo", obj);
       this.$store.commit("startOver");
     },
   },
   watch: {
-    specialities(newValue) {
+    arraySpecialities(newValue) {
       this.$emit("update:especiality", newValue);
     },
   },

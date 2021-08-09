@@ -1,6 +1,6 @@
 <template>
   <section class="phase phase-1">
-    <h2>Usuario ou instrutor?</h2>
+    <h2>Usuario ou Instrutor?</h2>
     <div>
       <button
         type="button"
