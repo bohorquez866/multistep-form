@@ -33,6 +33,7 @@
     />
     <label for="abdomen"> Abdomen </label>
   </article>
+  <button @click="goBack" class="add-user back">Voltar</button>
   <span class="progress-bar user-phase-4"></span>
 </template>
 
@@ -72,6 +73,10 @@ export default {
     onChangeValue(e) {
       this.specialty = e.target.value;
     },
+    goBack() {
+      this.$store.commit("returnPreviousView");
+    },
+
     startOver() {
       let obj = {
         name: "",
@@ -89,6 +94,7 @@ export default {
       };
       this.$store.commit("showAlert");
       this.$store.commit("setUserInfo", obj);
+      this.$store.commit("pushUserToUsers", this.$store.state.user);
       this.$store.commit("startOver");
     },
   },

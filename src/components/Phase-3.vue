@@ -7,7 +7,6 @@
         type="text"
         name="street"
         placeholder="Rua"
-        :value="$store.getters.user.street"
         @input="$emit('update:street', $event.target.value)"
       />
     </div>
@@ -18,7 +17,6 @@
         type="number"
         name="cep"
         placeholder="CEP"
-        :value="$store.getters.user.cep"
         @input="$emit('update:cep', $event.target.value)"
       />
     </div>
@@ -29,7 +27,6 @@
         type="text"
         name="city"
         placeholder="Cidade"
-        :value="$store.getters.user.city"
         @input="$emit('update:city', $event.target.value)"
       />
     </div>
@@ -40,7 +37,6 @@
         type="text"
         name="street"
         placeholder="Estado"
-        :value="$store.getters.user.state"
         @input="$emit('update:state', $event.target.value)"
       />
     </div>
@@ -51,7 +47,6 @@
         type="text"
         name="street"
         placeholder="pais"
-        :value="$store.getters.user.country"
         @input="$emit('update:country', $event.target.value)"
       />
     </div>
@@ -120,14 +115,17 @@ export default {
       default: "",
     },
   },
+
   mounted() {
     this.checkBar();
   },
+
   computed: {
     userTypes() {
       return this.$store.state.selectedType;
     },
   },
+
   methods: {
     checkBar() {
       if (this.userTypes == "usuario") {
@@ -141,6 +139,8 @@ export default {
     },
     startOver() {
       this.$store.commit("startOver");
+      this.$store.commit("showAlert");
+      this.$store.commit("pushUserToUsers", this.$store.state.user);
       this.$store.commit("addUserInfo", this.user);
     },
     proceedToNext() {

@@ -7,7 +7,6 @@
         type="text"
         name="name"
         placeholder="Nome"
-        :value="$store.getters.user.name"
         @input="$emit('update:name', $event.target.value)"
         required
         ref="inputName"
@@ -20,7 +19,6 @@
         type="text"
         name="username"
         placeholder="Sobrenome"
-        :value="$store.getters.user.username"
         @input="$emit('update:username', $event.target.value)"
         required
         ref="inputUsername"
@@ -34,7 +32,6 @@
         name="date"
         placeholder="Fecha de Nascimento"
         required
-        :value="$store.getters.user.date"
         @input="$emit('update:date', $event.target.value)"
         ref="inputDate"
       />
@@ -46,7 +43,6 @@
         type="email"
         name="email"
         placeholder="email"
-        :value="$store.getters.user.email"
         @input="$emit('update:email', $event.target.value)"
         required
         ref="inputEmail"
@@ -57,7 +53,6 @@
       <label for="phone">Telefone</label>
       <input
         type="text"
-        :value="$store.getters.user.phone"
         @input="$emit('update:phone', $event.target.value)"
         name="phone"
         placeholder="Telefone"

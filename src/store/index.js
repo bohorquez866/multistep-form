@@ -19,10 +19,14 @@ export default createStore({
             userType: "",
             especiality: [],
         },
+        filteredUsers: null,
         userTypes: ["usuario", "instrutor"],
         selectedType: "",
     },
     getters: {
+        filteredUsers(state) {
+            return state.filteredUsers;
+        },
         sucessMessage(state) {
             return state.success;
         },
@@ -39,9 +43,21 @@ export default createStore({
         user(state) {
             return state.user;
         },
+        especiality(state) {
+            return state.especiality;
+        },
+        users(state) {
+            return state.users;
+        },
     },
 
     mutations: {
+        getFilteredUsers(state, payload) {
+            state.filteredUsers = payload;
+        },
+        pushUserToUsers(state, payload) {
+            state.users.push(payload);
+        },
         changeDefaultView(state) {
             state.defaultView++;
         },

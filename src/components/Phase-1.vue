@@ -19,16 +19,14 @@
 <script>
 export default {
   computed: {
-    props: {
-      userType: {
-        type: String,
-        default: function() {
-          return "";
-        },
-      },
-    },
     userTypes() {
       return this.$store.state.userTypes;
+    },
+  },
+  props: {
+    userType: {
+      type: String,
+      default: "",
     },
   },
 

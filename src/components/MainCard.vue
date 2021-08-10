@@ -74,7 +74,6 @@ export default {
   watch: {
     userObject: {
       handler() {
-        console.log("hola");
         this.$store.commit("setUserInfo", this.userObject);
       },
       deep: true,
